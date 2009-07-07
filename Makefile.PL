@@ -13,7 +13,7 @@ my %args = (
     META_MERGE        => {
         build_requires   => {'Test::More' => 0},
         resources        => {
-            repository   => '',
+            repository   => 'git://github.com/Abigail/Digest--Trivial.git',
         },
         keywords         => [qw [ ]],
     },
