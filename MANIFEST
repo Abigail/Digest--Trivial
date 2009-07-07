@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+Trivial.xs
+const-c.inc
+const-xs.inc
+lib/Digest/Trivial.pm
+t/001_trivial.t
