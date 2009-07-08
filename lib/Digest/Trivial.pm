@@ -89,8 +89,61 @@ By default, C<< Digest::Trivial >> exports both C<< trivial_x >> and
 C<< trivial_s >>. Use an explicite (possibly empty) import list if
 you want a subset of the default.
 
+=head1 IMPLEMENTATION
+
+The algorithms have been implemented in XS for efficiency reasons.
+
 =head1 BUGS
 
 If the argument of C<< trivial_s >> or C<< trivial_x >> contains a 
 C<< NUL >> byte, only the part of the string preceeding the C<< NUL >>
 byte is used to calculate the digest.
+
+=head1 SEE ALSO
+
+C<< Digest::MD5 >>, C<< Digest::MD4 >>, C<< Digest::SHA1 >>, etc.
+
+=head1 DEVELOPMENT
+
+The current sources of this module are found on github,
+L<< git://github.com/Abigail/Digest--Trivial.git >>.
+
+=head1 AUTHOR
+
+Abigail, L<< mailto:digest-trivial@abigail.be >>.
+
+=head1  COPYRIGHT and LICENSE
+
+Copyright (C) 2009 by Abigail.
+  
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+        
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+=head1 INSTALLATION
+
+To install this module, run, after unpacking the tar-ball, the
+following commands:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+You will need a C compiler to install the module.
+
+=cut
