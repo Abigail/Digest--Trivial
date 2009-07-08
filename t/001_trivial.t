@@ -13,16 +13,16 @@ BEGIN {
     use_ok 'Digest::Trivial'
 };
 
+#
+# Single character strings.
+#
 foreach my $i (0 .. MAX_CHAR) {
     my $str = chr $i;
-    is hash ($str), $i, "hash (chr $i) == $i";
+    is trivial_x $str, $i, "trivial_x (chr $i) == $i";
 }
 
-#
-# Double letters cancel out each other
-#
 foreach my $i (0 .. MAX_CHAR) {
-    my $str  = chr $i;
-       $str x= 2;
-    is hash ($str), 0, "Double chr ($i) is cancelled";
+    my $str = chr $i;
+    is trivial_s $str, $i, "trivial_s (chr $i) == $i";
 }
+

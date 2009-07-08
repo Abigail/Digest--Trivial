@@ -8,7 +8,7 @@ use Exporter ();
 use AutoLoader;
 
 our @ISA     = qw (Exporter);
-our @EXPORT  = qw (hash);
+our @EXPORT  = qw (trivial_x trivial_s);
 our $VERSION = '2009070801';
 
 require XSLoader;

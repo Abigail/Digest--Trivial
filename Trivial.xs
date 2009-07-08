@@ -9,14 +9,25 @@ MODULE = Digest::Trivial		PACKAGE = Digest::Trivial
 INCLUDE: const-xs.inc
 
 int
-hash(char *str);
+trivial_x (char *str);
+   PROTOTYPE: $
    CODE:
        RETVAL = 0;
        for (; * str; str ++) {
-           RETVAL ^= * str;
+           RETVAL ^= (unsigned char) * str;
        }
-       if (RETVAL < 0) {
-           RETVAL = 256 + RETVAL;
+   OUTPUT:
+       RETVAL
+
+
+int
+trivial_s (char *str);
+   PROTOTYPE: $
+   CODE:
+       RETVAL = 0;
+       for (; * str; str ++) {
+           RETVAL += (unsigned char) * str;
        }
+       RETVAL %= 256;
    OUTPUT:
        RETVAL
