@@ -8,3 +8,4 @@ const-xs.inc
 lib/Digest/Trivial.pm
 t/001_trivial.t
 t/101_trivial_x.t
+t/301_random.t
