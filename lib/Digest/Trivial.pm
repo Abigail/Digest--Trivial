@@ -9,7 +9,7 @@ use AutoLoader;
 
 our @ISA     = qw (Exporter);
 our @EXPORT  = qw (trivial_x trivial_s);
-our $VERSION = '2009070801';
+our $VERSION = '2009112401';
 
 require XSLoader;
 XSLoader::load ('Digest::Trivial', $VERSION);
