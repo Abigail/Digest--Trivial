@@ -20,6 +20,7 @@ my %args = (
         test_requires    => {
             strict           =>  0,
             warnings         =>  0,
+            constant         =>  0,
            'Test::More'      =>  0.88,
         },
         resources        => {
