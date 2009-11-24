@@ -7,10 +7,13 @@ no  warnings 'syntax';
 use constant NR_OF_CHARS => 256;
 use constant MAX_CHAR    => NR_OF_CHARS - 1;
 
-use Test::More tests => 1 + 2 * NR_OF_CHARS;
+use Test::More 0.88;
+
+our $r = eval "require Test::NoWarnings; 1";
 
 BEGIN {
-    use_ok 'Digest::Trivial'
+    use_ok 'Digest::Trivial' or
+        BAIL_OUT ("Loading of 'Digest::Trivial' failed");
 };
 
 #
@@ -26,3 +29,6 @@ foreach my $i (0 .. MAX_CHAR) {
     is trivial_s $str, $i, "trivial_s (chr $i) == $i";
 }
 
+Test::NoWarnings::had_no_warnings () if $r;
+
+done_testing;

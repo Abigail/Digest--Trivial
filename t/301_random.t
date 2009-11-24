@@ -9,11 +9,11 @@ use constant MAX_CHAR    => NR_OF_CHARS - 1;
 
 use constant NR_OF_TESTS => 1_024;
 
-use Test::More tests => 1 + 2 * NR_OF_TESTS;
+use Test::More 0.88;
+use Digest::Trivial;
 
-BEGIN {
-    use_ok 'Digest::Trivial'
-};
+our $r = eval "require Test::NoWarnings; 1";
+
 
 foreach (1 .. NR_OF_TESTS) {
     my $str = "";
@@ -29,3 +29,8 @@ foreach (1 .. NR_OF_TESTS) {
     is trivial_x $str, $xor,               "trivial_x";
     is trivial_s $str, $sum % NR_OF_CHARS, "trivial_s";
 }
+
+
+Test::NoWarnings::had_no_warnings () if $r;
+ 
+done_testing;
