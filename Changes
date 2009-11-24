@@ -1,5 +1,6 @@
 Version 2009112401
 + POD & Kwalitee tests
++ Mention all requirements in Makefile.PL
 
 Version 2009070801
 + Initial Release

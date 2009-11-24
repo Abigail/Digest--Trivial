@@ -6,18 +6,37 @@ my %args = (
     NAME              => 'Digest::Trivial',
     VERSION_FROM      => 'lib/Digest/Trivial.pm',
     ABSTRACT_FROM     => 'lib/Digest/Trivial.pm',
-    PREREQ_PM         => { },
+    PREREQ_PM         => {
+        stict             =>  0,
+        warnings          =>  0,
+        Exporter          =>  0,
+        AutoLoader        =>  0,
+        XSLoader          =>  0,
+    },
     MIN_PERL_VERSION  =>  5.006,
     AUTHOR            => 'Abigail <abigail@abigail.be>',
     LICENSE           => 'mit',
     META_MERGE        => {
-        build_requires   => {'Test::More' => 0},
+        test_requires    => {
+            strict           =>  0,
+            warnings         =>  0,
+           'Test::More'      =>  0.88,
+        },
         resources        => {
             repository   => 'git://github.com/Abigail/Digest--Trivial.git',
         },
         keywords         => [qw [ ]],
     },
 );
+
+$args {META_MERGE} {build_requires} ||= {
+    'ExtUtils::MakeMaker' =>  0,
+    %{$args {META_MERGE} {test_requires}}
+};
+
+$args {META_MERGE} {configure_requires} ||=
+    $args {META_MERGE} {build_requires};
+
 
 my %filter = (
     MIN_PERL_VERSION     => '6.48',
